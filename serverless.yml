@@ -1,0 +1,38 @@
+service: serverless-dynamodb
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  environment:
+    REGISTER_TABLE_NAME: ${env:REGISTER_TABLE_NAME}-table
+    AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+resources:
+  Resources:
+    DynamoDBTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        TableName: ${env:REGISTER_TABLE_NAME}-table
+        AttributeDefinitions:
+          - AttributeName: "mapID"
+            AttributeType: "S"
+          - AttributeName: "registerID"
+            AttributeType: "S"
+        KeySchema:
+          - AttributeName: "mapID"
+            KeyType: "HASH"
+          - AttributeName: "registerID"
+            KeyType: "RANGE"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
+functions:
+  api:
+    handler: index.handler
