@@ -6,8 +6,6 @@ provider:
   runtime: nodejs20.x
   environment:
     REGISTER_TABLE_NAME: ${env:REGISTER_TABLE_NAME}-table
-    AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-    AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
 
   iam:
     role:
@@ -50,6 +48,4 @@ package:
     - node_modules/**
     - .gitignore
     - .git/**
-    - .env
-
- 
+    - .env 
