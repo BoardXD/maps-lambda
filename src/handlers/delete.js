@@ -1,4 +1,4 @@
-import { deleteRegister } from '../infra/dynamoQueries'
+import { deleteRegister } from '../infra/dynamoQueries.js'
 
 export const deleteEndpoint = async (event) => {
     const { mapID, registerID } = event?.pathParameters

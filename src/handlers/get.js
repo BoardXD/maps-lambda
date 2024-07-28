@@ -1,4 +1,4 @@
-import { findMapByMapId , findAllRegisters } from '../infra/dynamoQueries'
+import { findMapByMapId , findAllRegisters } from '../infra/dynamoQueries.js'
 
 export const scanEndpoint = async (event) => {
     const pageSize = event?.queryStringParameters?.pageSize || 100

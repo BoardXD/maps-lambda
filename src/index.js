@@ -1,7 +1,7 @@
-import { deleteEndpoint } from "./handlers/delete"
-import { getEndpoint, scanEndpoint } from "./handlers/get"
-import { postEndpoint } from "./handlers/post"
-import { putEndpoint } from "./handlers/put"
+import { deleteEndpoint } from './handlers/delete.js'
+import { getEndpoint, scanEndpoint } from "./handlers/get.js"
+import { postEndpoint } from "./handlers/post.js"
+import { putEndpoint } from "./handlers/put.js"
 
 export const handler = async (event) => {
     try {

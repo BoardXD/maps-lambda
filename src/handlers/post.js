@@ -1,4 +1,4 @@
-import { createRegister } from "../infra/dynamoQueries"
+import { createRegister } from "../infra/dynamoQueries.js"
 
 export const postEndpoint = async (event) => {
     const { mapID, registerID, register } = typeof event.body === "string" ? JSON.parse(event.body) : event.body

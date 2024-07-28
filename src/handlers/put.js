@@ -1,4 +1,4 @@
-import { updateRegister } from '../infra/dynamoQueries'
+import { updateRegister } from '../infra/dynamoQueries.js'
 
 export const putEndpoint = async (event) => {
     const { mapID, registerID, register } = typeof event.body === "string" ? JSON.parse(event.body) : event.body
